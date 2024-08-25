@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  dashboard-frontend:
+    container_name: dashboard-frontend_container
+    build: .
+    image: dashboard-frontend:latest
+    ports:
+      - 80:80
+    networks:
+      - internalnet
+
+networks:
+  internalnet:
+    driver: bridge
