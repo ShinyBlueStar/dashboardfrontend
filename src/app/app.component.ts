@@ -1,9 +1,8 @@
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, afterNextRender } from '@angular/core';
+import { Component, OnInit, OnDestroy} from '@angular/core';
 import { TaskService } from './task.service';
 import { Task } from './task';
-import { Subscription, delay, interval, of } from 'rxjs';
+import { Subscription, interval, of } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
-import { NgFor } from '@angular/common';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
