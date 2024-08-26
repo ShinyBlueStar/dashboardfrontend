@@ -1,4 +1,3 @@
-// import { Component } from '@angular/core';
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, afterNextRender } from '@angular/core';
 import { TaskService } from './task.service';
 import { Task } from './task';
@@ -18,13 +17,10 @@ export class AppComponent implements OnDestroy, OnInit{
 
   public tasks: Task[] = [];
   private subscription: Subscription | undefined;
-  // private readonly startFetching = this.setupTaskRefresh();
-
-  constructor(private taskService: TaskService) {
-    //this.getTasks();
-  }
+  constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
+    console.log('process of fetching tasks from server started')
     this.getTasks();
     this.startTaskRefresh();
 
@@ -53,7 +49,7 @@ export class AppComponent implements OnDestroy, OnInit{
           this.taskService.getTasks().pipe(
             catchError((error: HttpErrorResponse) => {
               console.error('Error in task refresh:', error);
-              return of([]); // Return an empty array in case of error
+              return of([]);
             })
           )
         )
