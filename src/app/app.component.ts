@@ -55,7 +55,7 @@ export class AppComponent implements OnDestroy, OnInit{
       )
       .subscribe((tasks: Task[]) => {
         this.tasks = tasks;
-        console.log('Tasks refreshed:', tasks);
+        console.log('Tasks refreshed:', tasks[0]);
       });
   }
 
